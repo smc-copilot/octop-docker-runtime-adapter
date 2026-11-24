@@ -1,0 +1,21 @@
+Image: octop-sandbox:2026.11-base
+Date: 2026-11-23 on 192.168.99.170
+
+- C libs ctypes load: PASS
+- node v20.19.2 / npm 9.2.0: PASS
+- ffmpeg 7.1.5 testsrc -> mp4 2732 bytes: PASS
+- tesseract 5.5.0 langs: chi_sim, eng, osd: PASS
+- cairosvg SVG -> PNG 720 bytes magic \x89PNG: PASS
+- weasyprint HTML -> PDF 55572 bytes magic %PDF: PASS
+- pip install --user writes to /opt/octop-user/pyuser (mounted) and imports: PASS
+- Adapter smoke with this image: smoke_passed=true run e94635c72448
+- assert-legacy after smoke: unchanged 23
+- npm install -g cowsay writes /opt/octop-user/npm/bin and runs from mounted prefix: PASS
+
+## Timezone update (2026-11-24)
+
+- Dockerfile sets TZ=Asia/Shanghai, /etc/localtime -> Asia/Shanghai, /etc/timezone
+- docker run date: Tue Nov 24 12:43:05 CST 2026; date +%Z = CST
+- python time.tzname = ('CST', 'CST')
+- Adapter-created test container: image_id sha256:15fd52...; date CST; TZ=Asia/Shanghai
+- Existing bc01 containers (alice/scl/smc/admin) unchanged: same IDs/created, date UTC, TZ unset

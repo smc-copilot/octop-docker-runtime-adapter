@@ -1,0 +1,49 @@
+# Octop sandbox base image - broad OS dependencies, pinned base digest.
+# Strategy: OS-level libs live here; Python/Node/user binaries live on the
+# persistent /opt/octop-user mount so they survive container recreation.
+FROM python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+      # --- Cairo / Pango / font stack ---
+      libcairo2 libpango-1.0-0 libpangoft2-1.0-0 libfontconfig1 \
+      libgdk-pixbuf-2.0-0 libharfbuzz0b \
+      fonts-dejavu-core fonts-noto-cjk fontconfig shared-mime-info \
+      # --- media / documents / OCR ---
+      ffmpeg poppler-utils ghostscript \
+      tesseract-ocr tesseract-ocr-eng tesseract-ocr-chi-sim \
+      # --- Node (pptxgenjs / web tooling) ---
+      nodejs npm \
+      # --- common CLI ---
+      git curl wget jq unzip zip ripgrep ca-certificates locales tzdata \
+      # --- build toolchain for pip/npm packages without wheels ---
+      build-essential pkg-config libcairo2-dev libpango1.0-dev \
+      libffi-dev libssl-dev python3-dev \
+ && rm -rf /var/lib/apt/lists/*
+
+# Persistent user-space toolchain. /opt/octop-user is the adapter's shared mount.
+ENV TZ=Asia/Shanghai \
+    PIP_CACHE_DIR=/opt/octop-user/pip-cache \
+    UV_CACHE_DIR=/opt/octop-user/uv-cache \
+    PYTHONUSERBASE=/opt/octop-user/pyuser \
+    npm_config_prefix=/opt/octop-user/npm \
+    npm_config_cache=/opt/octop-user/npm-cache \
+    HF_HOME=/opt/octop-user/hf \
+    TORCH_HOME=/opt/octop-user/torch \
+    MPLCONFIGDIR=/opt/octop-user/matplotlib \
+    PATH=/opt/octop-user/bin:/opt/octop-user/npm/bin:/opt/octop-user/pyuser/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+ && printf '%s\n' "$TZ" > /etc/timezone \
+ && date && date +%Z && cat /etc/timezone
+
+# Fail the build if the core C libraries cannot be loaded.
+RUN python -c "import ctypes; [ctypes.CDLL(l) for l in ('libcairo.so.2','libpango-1.0.so.0','libpangoft2-1.0.so.0','libfontconfig.so.1','libgdk_pixbuf-2.0.so.0','libharfbuzz.so.0')]; print('C libs OK')" \
+ && node --version && npm --version \
+ && ffmpeg -version | head -1 \
+ && tesseract --version | head -1
+
+LABEL org.opencontainers.image.title="octop-sandbox-base" \
+      org.opencontainers.image.description="Broad Debian 13 sandbox base for Octop expert skills" \
+      org.opencontainers.image.version="2026.11"
