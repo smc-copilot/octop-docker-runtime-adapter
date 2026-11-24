@@ -1,0 +1,8 @@
+{
+  "octop/infra/agents/manager.py": "611bd5002e1ac4381ad72b74caebf503f6ed310c7e309d4e8bbe0e4522415e4c",
+  "octop/infra/backend/docker_spec.py": "4fba1821000ccd2d5a0515b965284e74d8f4b55cf7b37bb47b6458e796f6af25",
+  "octop/infra/backend/probe.py": "091d5d674aac8f215273b36fcbd34a60f6342b671515ed3777bb49d9cac52300",
+  "octop_harness/backends/docker_sandbox.py": "2be9da913b59ed5dd9636778b41407b90050153c032ffdc7b8ae1f66b050a53b",
+  "octop_harness/backends/__init__.py": "4abc112257f6045a63538110914eb9e46fb7dcb81d46fd1c2c1fdf14080dc38f",
+  "docker/models/containers.py": "b1910efffb490ddfcba03fb52ef2aa0e06c42f51a7e7ebf83a0301a794b73b04"
+}

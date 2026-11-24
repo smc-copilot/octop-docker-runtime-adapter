@@ -1,0 +1,11 @@
+{
+  "instance_id": "octop-bc01",
+  "sandbox_prefix": "octop_sandbox_bc01",
+  "workspace_root": "/home/smc/.octop/user-workspaces/octop-bc01",
+  "container_workspace_root": "/home/smc/.octop/agents",
+  "state_dir": "/data/octop-docker-runtime-adapter/state",
+  "log_file": "/data/octop-docker-runtime-adapter/logs/adapter.jsonl",
+  "network_name": "octop-agent-egress",
+  "shared_target": "/opt/octop-user",
+  "lock_timeout": 30
+}

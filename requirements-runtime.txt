@@ -1,0 +1,2 @@
+# Deployment reuses these installed versions; do not pip upgrade.
+# Python 3.12; octop==1.0.3b7; octop-harness==1.0.11; docker==7.2.0

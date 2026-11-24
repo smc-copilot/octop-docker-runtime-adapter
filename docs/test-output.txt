@@ -1,0 +1,35 @@
+test_baseline_write_never_overwrites (test_contract_and_ops.ContractTests.test_baseline_write_never_overwrites) ... ok
+test_compatibility_matches_reviewed_real_distribution_files (test_contract_and_ops.ContractTests.test_compatibility_matches_reviewed_real_distribution_files) ... ok
+test_cross_process_lock_enforces_timeout (test_contract_and_ops.ContractTests.test_cross_process_lock_enforces_timeout) ... ok
+test_empty_environment_snapshot_is_allowed_and_config_drift_blocked (test_contract_and_ops.ContractTests.test_empty_environment_snapshot_is_allowed_and_config_drift_blocked) ... ok
+test_lazy_import_hook_runs_after_module_definitions (test_contract_and_ops.ContractTests.test_lazy_import_hook_runs_after_module_definitions) ... ok
+test_real_sdk_translates_user_mounts_and_limits (test_contract_and_ops.ContractTests.test_real_sdk_translates_user_mounts_and_limits) ... ok
+test_sitecustomize_validates_before_enabling_and_aborts_bad_config (test_contract_and_ops.ContractTests.test_sitecustomize_validates_before_enabling_and_aborts_bad_config) ... ok
+test_409_race_only_accepts_exact_managed_container (test_user_runtime.UserRuntimeTests.test_409_race_only_accepts_exact_managed_container) ... ok
+test_agent_scope_routes_to_original_lifecycle (test_user_runtime.UserRuntimeTests.test_agent_scope_routes_to_original_lifecycle) ... ok
+test_allow_network_false_is_preserved (test_user_runtime.UserRuntimeTests.test_allow_network_false_is_preserved) ... ok
+test_close_and_destroy_do_not_remove_shared_container (test_user_runtime.UserRuntimeTests.test_close_and_destroy_do_not_remove_shared_container) ... ok
+test_container_drift_blocks_execute (test_user_runtime.UserRuntimeTests.test_container_drift_blocks_execute) ... ok
+test_different_users_different_sources_and_containers (test_user_runtime.UserRuntimeTests.test_different_users_different_sources_and_containers) ... ok
+test_existing_unmanaged_container_is_not_started (test_user_runtime.UserRuntimeTests.test_existing_unmanaged_container_is_not_started) ... ok
+test_failed_start_never_renames_or_recreates (test_user_runtime.UserRuntimeTests.test_failed_start_never_renames_or_recreates) ... ok
+test_identity_and_path_rejections (test_user_runtime.UserRuntimeTests.test_identity_and_path_rejections) ... ok
+test_late_third_expert_keeps_same_mounts_and_container (test_user_runtime.UserRuntimeTests.test_late_third_expert_keeps_same_mounts_and_container) ... ok
+test_manager_uses_owner_not_supplied_username_and_adds_agent_id (test_user_runtime.UserRuntimeTests.test_manager_uses_owner_not_supplied_username_and_adds_agent_id) ... ok
+test_missing_container_rebind_uses_same_sources (test_user_runtime.UserRuntimeTests.test_missing_container_rebind_uses_same_sources) ... ok
+test_native_build_docker_preserves_internal_binding_and_workspace (test_user_runtime.UserRuntimeTests.test_native_build_docker_preserves_internal_binding_and_workspace) ... ok
+test_parallel_first_acquire_single_create (test_user_runtime.UserRuntimeTests.test_parallel_first_acquire_single_create) ... ok
+test_probe_uses_unique_fixed_name_and_no_user_mounts (test_user_runtime.UserRuntimeTests.test_probe_uses_unique_fixed_name_and_no_user_mounts) ... ok
+test_protected_name_blocks_even_when_old_container_missing (test_user_runtime.UserRuntimeTests.test_protected_name_blocks_even_when_old_container_missing) ... ok
+test_same_username_different_database_owner_rejected (test_user_runtime.UserRuntimeTests.test_same_username_different_database_owner_rejected) ... ok
+test_sdk_failure_no_unmounted_retry (test_user_runtime.UserRuntimeTests.test_sdk_failure_no_unmounted_retry) ... ok
+test_source_symlink_does_not_expose_foreign_host_tree (test_user_runtime.UserRuntimeTests.test_source_symlink_does_not_expose_foreign_host_tree) ... ok
+test_two_experts_share_one_user_container_with_separate_exec_workdir (test_user_runtime.UserRuntimeTests.test_two_experts_share_one_user_container_with_separate_exec_workdir) ... ok
+test_user_limits_network_and_image_conflicts_fail (test_user_runtime.UserRuntimeTests.test_user_limits_network_and_image_conflicts_fail) ... ok
+test_username_rename_cannot_create_second_container_for_same_user (test_user_runtime.UserRuntimeTests.test_username_rename_cannot_create_second_container_for_same_user) ... ok
+test_volume_drift_blocks_before_start (test_user_runtime.UserRuntimeTests.test_volume_drift_blocks_before_start) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 1.531s
+
+OK
